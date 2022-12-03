@@ -1,7 +1,9 @@
 with open("./3/input.txt") as input:
-    sum_priorities = 0
-
+    
     rucksacks = input.read().splitlines()
+
+    # part 1
+    sum_priorities = 0
     for rucksack in rucksacks:
         first_compartment, second_compartment = set(rucksack[:len(rucksack)//2]), set(rucksack[len(rucksack)//2:])
         common_item : str = set.intersection(first_compartment, second_compartment).pop()
@@ -10,7 +12,7 @@ with open("./3/input.txt") as input:
     
     print(sum_priorities)
     
-    
+    # part 2
     sum_badge_priorities = 0
     for i in range(0, len(rucksacks), 3):
         elf_one, elf_two, elf_three = [set(rs) for rs in rucksacks[i:i+3]]
